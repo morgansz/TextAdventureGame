@@ -1,0 +1,18 @@
+sequenceDiagram
+    participant M as Main
+    participant G as Game
+    participant S as Storyline
+    participant E as Ending
+    participant N as NLPUtils
+    
+    M->>G: start_game()
+    G->>S: get_text()
+    S->>N: generate_text(choices)
+    N-->>S: text
+    S-->>G: text
+    G->>S: get_choices()
+    G->>M: display_text(text, choices)
+    M->>G: make_choice(choice)
+    G->>E: get_text()
+    G->>M: display_text(text)
+    G->>M: end_game()
